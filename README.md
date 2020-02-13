@@ -17,36 +17,36 @@ previous homework assignemnts.
 4. Increment the x and y coordinates of the rectangle. You can do this by adding deltaX to x and deltaY to y.
 5. Go back to 1.
 
-    ; |----------------------|
-    ; | Return Address       |
-    ; |----------------------|
-    ; | BP                   |
-    ; |----------------------|
-    ; | inner_count          |
-    ; |----------------------|
-    ; | outer_count          |
-    ; |----------------------|
-    delay:
-        push bp                 ; Prologue
-        mov bp,sp
-        sub sp,4
+        ; |----------------------|
+        ; | Return Address       |
+        ; |----------------------|
+        ; | BP                   |
+        ; |----------------------|
+        ; | inner_count          |
+        ; |----------------------|
+        ; | outer_count          |
+        ; |----------------------|
+        delay:
+            push bp                 ; Prologue
+            mov bp,sp
+            sub sp,4
 
-        mov word [bp-2],0       ; Init two local variables to 0
-        mov word [bp-4],0
+            mov word [bp-2],0       ; Init two local variables to 0
+            mov word [bp-4],0
 
-    delay_outer_loop:
-        inc word [bp-4]         ; Increment the outer loop counter
-    delay_inner_loop:
-        inc word [bp-2]         ; Increment inner loop counter
-        cmp word [bp-2],0xffff  ; Check to see if we've maxed out the register
-        jb delay_inner_loop     ; If not, keep incrementing inner counter
+        delay_outer_loop:
+            inc word [bp-4]         ; Increment the outer loop counter
+        delay_inner_loop:
+            inc word [bp-2]         ; Increment inner loop counter
+            cmp word [bp-2],0xffff  ; Check to see if we've maxed out the register
+            jb delay_inner_loop     ; If not, keep incrementing inner counter
 
-        ; MODIFY THIS CMP TO CHANGE THE DELAY AMOUNT
-        cmp word [bp-4],30      ; Check if outer counter is big enough
-        jb delay_outer_loop     ; If not keep looping
+            ; MODIFY THIS CMP TO CHANGE THE DELAY AMOUNT
+            cmp word [bp-4],30      ; Check if outer counter is big enough
+            jb delay_outer_loop     ; If not keep looping
 
-        mov sp,bp               ; Epilogue
-        pop bp
-        ret
+            mov sp,bp               ; Epilogue
+            pop bp
+            ret
 
 
