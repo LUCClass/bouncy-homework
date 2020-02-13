@@ -17,15 +17,15 @@ previous homework assignemnts.
 4. Increment the x and y coordinates of the rectangle. You can do this by adding deltaX to x and deltaY to y.
 5. Go back to 1.
 
-; |----------------------|
-; | Return Address       |
-; |----------------------|
-; | BP                   |
-; |----------------------|
-; | inner_count          |
-; |----------------------|
-; | outer_count          |
-; |----------------------|
+    ; |----------------------|
+    ; | Return Address       |
+    ; |----------------------|
+    ; | BP                   |
+    ; |----------------------|
+    ; | inner_count          |
+    ; |----------------------|
+    ; | outer_count          |
+    ; |----------------------|
     delay:
         push bp                 ; Prologue
         mov bp,sp
